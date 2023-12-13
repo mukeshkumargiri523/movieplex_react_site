@@ -1,5 +1,5 @@
-const { instance } = require("../index.js");
 const crypto = require("crypto");
+const { instance } = require("../razorpay");
 
 exports.checkout = async (req, res) => {
   try {
@@ -7,9 +7,9 @@ exports.checkout = async (req, res) => {
       amount: Number(req.body.amount * 100), // amount in the smallest currency unit
       currency: "INR",
     };
+
     const order = await instance.orders.create(options);
-    // res.status(200).json({ success: true, order });
-    res.status(200).json({ success: true });
+    res.status(200).json({ success: true, order });
   } catch (error) {
     console.log(error);
   }

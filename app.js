@@ -16,4 +16,5 @@ app.use("/api", paymentRoute);
 app.get("/api/getkey", (req, res) => {
   res.status(200).json({ key: process.env.RAZORPAY_API_KEY });
 });
+
 exports.app = app;
