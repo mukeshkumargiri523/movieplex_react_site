@@ -27,7 +27,9 @@ exports.paymentVerification = async (req, res) => {
       .digest("hex");
     const isAuthentic = expectedSignature === razorpay_signature;
     if (isAuthentic) {
-      res.redirect(`/paymentsuccess?reference=${razorpay_payment_id}`);
+      res.redirect(
+        `https://movieplex-react-site-qng6.vercel.app/paymentsuccess?reference=${razorpay_payment_id}`
+      );
     } else {
       res.status(400).json({ success: false });
     }
